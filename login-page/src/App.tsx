@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react'
+import BaseModalWrapper from './ModalPopup/BaseModalWrapper';
 
 function App() {
 
@@ -8,11 +9,10 @@ function App() {
   const toggleModal = () => {
     setIsModalVisible(wasModalVisible => !wasModalVisible)
   }
-
   return (
     <div className="App">
-      <button>show modal</button>
-      <BaseModalWrapper />
+      <button onClick={toggleModal}>show modal</button>
+      <BaseModalWrapper isModalVisible={isModalVisible} onBackdropClick={toggleModal} />
     </div>
   );
 }
